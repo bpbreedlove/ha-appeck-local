@@ -1,0 +1,26 @@
+"""Constants for APPECK Local."""
+
+DOMAIN = "appeck_local"
+PLATFORMS = ["light"]
+
+CONF_DEVICE_ID = "device_id"
+CONF_LOCAL_KEY = "local_key"
+CONF_PROTOCOL_VERSION = "protocol_version"
+CONF_BULB_COUNT = "bulb_count"
+
+DEFAULT_PROTOCOL_VERSION = "3.5"
+DEFAULT_BULB_COUNT = 60
+
+DP_POWER = 20
+DP_MODE = 21
+DP_BRIGHTNESS = 22
+DP_SCENE_SPEED_OR_CT = 23
+DP_COLOR = 24
+DP_MAX_BULBS = 47
+DP_SCENE = 51
+DP_CONFIGURED_BULBS = 53
+DP_PIXEL = 61
+DP_CUSTOM_SCENE_SLOT = 104
+
+MODE_COLOR = "colour"
+MODE_SCENE = "scene"
