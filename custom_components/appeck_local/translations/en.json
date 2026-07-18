@@ -1,0 +1,24 @@
+{
+  "title": "APPECK Local",
+  "config": {
+    "step": {
+      "user": {
+        "title": "Connect to an APPECK controller",
+        "description": "Enter the local Tuya credentials for the controller. These values remain in Home Assistant's config entry storage.",
+        "data": {
+          "host": "IP address or hostname",
+          "device_id": "Tuya device ID",
+          "local_key": "Tuya local key",
+          "protocol_version": "Tuya protocol version",
+          "bulb_count": "Configured bulb count"
+        }
+      }
+    },
+    "error": {
+      "cannot_connect": "Unable to connect or authenticate with the controller. Verify the address, device ID, local key, and protocol version."
+    },
+    "abort": {
+      "already_configured": "This Tuya device is already configured."
+    }
+  }
+}
