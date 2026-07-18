@@ -12,13 +12,15 @@ from homeassistant.components.light import (
     ATTR_HS_COLOR,
     ColorMode,
     LightEntity,
-    LightEntityFeature,
 )
 from homeassistant.config_entries import ConfigEntry
 from homeassistant.const import CONF_STATE, STATE_OFF, STATE_ON
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers import config_validation as cv
-from homeassistant.helpers.entity_platform import AddEntitiesCallback
+from homeassistant.helpers.entity_platform import (
+    AddEntitiesCallback,
+    async_get_current_platform,
+)
 
 from .client import AppeckClient
 from .const import (
@@ -54,15 +56,13 @@ async def async_setup_entry(
     async_add_entities: AddEntitiesCallback,
 ) -> None:
     """Set up the APPECK light entity."""
-    entity = AppeckLight(entry)
-    async_add_entities([entity], True)
-
-    platform = entity.platform
+    platform = async_get_current_platform()
     platform.async_register_entity_service(
         "set_pixels",
         SET_PIXELS_SCHEMA,
         "async_set_pixels",
     )
+    async_add_entities([AppeckLight(entry)], True)
 
 
 class AppeckLight(LightEntity):
@@ -72,7 +72,6 @@ class AppeckLight(LightEntity):
     _attr_name = "Permanent Lights"
     _attr_color_mode = ColorMode.HS
     _attr_supported_color_modes = {ColorMode.HS}
-    _attr_supported_features = LightEntityFeature.EFFECT
     _attr_should_poll = True
 
     def __init__(self, entry: ConfigEntry[AppeckClient]) -> None:
