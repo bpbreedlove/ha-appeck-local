@@ -1,0 +1,12 @@
+{
+  "domain": "appeck_local",
+  "name": "APPECK Local",
+  "codeowners": ["@bpbreedlove"],
+  "config_flow": true,
+  "documentation": "https://github.com/bpbreedlove/ha-appeck-local",
+  "issue_tracker": "https://github.com/bpbreedlove/ha-appeck-local/issues",
+  "integration_type": "device",
+  "iot_class": "local_polling",
+  "requirements": ["tinytuya==1.20.0"],
+  "version": "0.1.0-alpha.1"
+}
