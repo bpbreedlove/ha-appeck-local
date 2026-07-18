@@ -1,0 +1,51 @@
+set_pixels:
+  name: Set pixels
+  description: Apply an HSV color or off command to one or more addressed pixels using DP61.
+  target:
+    entity:
+      integration: appeck_local
+      domain: light
+  fields:
+    pixels:
+      name: Pixels
+      description: One-based pixel numbers to control.
+      required: true
+      example: [49, 50, 51, 52, 53]
+      selector:
+        object:
+    state:
+      name: State
+      description: Whether to enable/apply color or disable the selected pixels.
+      default: "on"
+      selector:
+        select:
+          options:
+            - "on"
+            - "off"
+    hue:
+      name: Hue
+      description: Hue from 0 through 360.
+      default: 0
+      selector:
+        number:
+          min: 0
+          max: 360
+          mode: box
+    saturation:
+      name: Saturation
+      description: Tuya saturation from 0 through 1000.
+      default: 1000
+      selector:
+        number:
+          min: 0
+          max: 1000
+          mode: box
+    value:
+      name: Value
+      description: Tuya value/brightness from 0 through 1000.
+      default: 1000
+      selector:
+        number:
+          min: 0
+          max: 1000
+          mode: box
